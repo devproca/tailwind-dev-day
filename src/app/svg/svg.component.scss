@@ -1,0 +1,11 @@
+:host {
+  @apply inline-flex items-center justify-center;
+}
+
+.svg-wrapper {
+  @apply inline-flex items-center justify-center;
+}
+
+svg {
+  @apply h-4 w-4 text-gray-700;
+}
