@@ -15,6 +15,11 @@ label {
   transition: all 200ms ease-in-out;
 }
 
+.input[disabled] {
+  @apply bg-gray-100 text-gray-500;
+}
+
 .input:focus {
   @apply shadow-focus border-blue-300;
 }
+
