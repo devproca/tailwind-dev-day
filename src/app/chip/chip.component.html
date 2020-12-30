@@ -1,1 +1,5 @@
-chip works!
+<div class="chip-wrapper">
+  <app-avatar [label]="firstLetters"></app-avatar>
+  <div class="chip-label">{{label}}</div>
+  <app-svg-button name="times" (click)="onClose()"></app-svg-button>
+</div>

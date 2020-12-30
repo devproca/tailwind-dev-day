@@ -11,9 +11,9 @@ export class ChipComponent {
 
   @Output() close = new EventEmitter<void>();
 
-  /*
-    Fill in the rest of this component, the html and the scss.
-   */
+  onClose(): void {
+    this.close.emit();
+  }
 
   /*
 
