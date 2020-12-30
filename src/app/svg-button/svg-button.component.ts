@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-svg-button',
@@ -8,9 +8,4 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 export class SvgButtonComponent {
 
   @Input() name: string;
-  @Output() click = new EventEmitter<void>();
-
-  onClick(): void {
-    this.click.emit();
-  }
 }
