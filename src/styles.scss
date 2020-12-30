@@ -5,3 +5,7 @@
 label {
   @apply block text-sm text-gray-700 mb-1;
 }
+
+.input {
+  @apply px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded outline-none leading-none;
+}
