@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { SvgComponent } from './svg/svg.component';
+import { SvgButtonComponent } from './svg-button/svg-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AvatarComponent,
-    SvgComponent
+    SvgComponent,
+    SvgButtonComponent
   ],
   imports: [
     BrowserModule,

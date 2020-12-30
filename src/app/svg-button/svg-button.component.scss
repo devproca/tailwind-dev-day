@@ -1,0 +1,8 @@
+:host {
+  @apply inline-flex;
+}
+
+.svg-button-wrapper {
+  @apply inline-flex items-center justify-center h-6 w-6 bg-gray-200 rounded-full cursor-pointer hover:bg-gray-300;
+  transition: background-color 200ms ease-in-out;
+}
