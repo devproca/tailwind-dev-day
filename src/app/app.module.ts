@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { AvatarComponent } from './avatar/avatar.component';
 import { SvgComponent } from './svg/svg.component';
 import { SvgButtonComponent } from './svg-button/svg-button.component';
+import { ChipComponent } from './chip/chip.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AvatarComponent,
     SvgComponent,
-    SvgButtonComponent
+    SvgButtonComponent,
+    ChipComponent
   ],
   imports: [
     BrowserModule,
