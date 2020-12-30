@@ -6,6 +6,15 @@ label {
   @apply block text-sm text-gray-700 mb-1;
 }
 
+.shadow-focus {
+  box-shadow: 0px 0px 0px 3px rgba(66, 153, 225, 0.35);
+}
+
 .input {
   @apply px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded outline-none leading-none;
+  transition: all 200ms ease-in-out;
+}
+
+.input:focus {
+  @apply shadow-focus border-blue-300;
 }
