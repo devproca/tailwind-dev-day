@@ -1,3 +1,7 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+label {
+  @apply block text-sm text-gray-700 mb-1;
+}
