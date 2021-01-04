@@ -8,6 +8,7 @@ import {SvgComponent} from './svg/svg.component';
 import {SvgButtonComponent} from './svg-button/svg-button.component';
 import {ChipComponent} from './chip/chip.component';
 import {AlertComponent} from './alert/alert.component';
+import {HomeScreenComponent} from './home-screen/home-screen.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {AlertComponent} from './alert/alert.component';
     SvgComponent,
     SvgButtonComponent,
     ChipComponent,
-    AlertComponent
+    AlertComponent,
+    HomeScreenComponent
   ],
   imports: [
     BrowserModule,
