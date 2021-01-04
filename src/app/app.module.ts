@@ -1,12 +1,13 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AvatarComponent } from './avatar/avatar.component';
-import { SvgComponent } from './svg/svg.component';
-import { SvgButtonComponent } from './svg-button/svg-button.component';
-import { ChipComponent } from './chip/chip.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {AvatarComponent} from './avatar/avatar.component';
+import {SvgComponent} from './svg/svg.component';
+import {SvgButtonComponent} from './svg-button/svg-button.component';
+import {ChipComponent} from './chip/chip.component';
+import {AlertComponent} from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ChipComponent } from './chip/chip.component';
     AvatarComponent,
     SvgComponent,
     SvgButtonComponent,
-    ChipComponent
+    ChipComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -23,4 +25,5 @@ import { ChipComponent } from './chip/chip.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
