@@ -23,6 +23,7 @@ npm cache clean
 npm install -g @angular/cli@^10
 ```
 
+
 ## Setting up an angular application configured to use tailwindcss
 
 Skip the install because we will use yarn instead of npm
@@ -35,6 +36,13 @@ yarn install
 
 ### Add some additional dependencies and configure
 
+**For Angular 11**
+```
+yarn add @angular-builders/custom-webpack
+yarn add --dev tailwindcss autoprefixer postcss postcss-import postcss-loader postcss-scss
+```
+
+**For Angular 10**
 ```
 ng add ngx-build-plus
 yarn add --dev tailwindcss autoprefixer postcss postcss-import postcss-loader postcss-scss
@@ -68,6 +76,31 @@ module.exports = {
 
 Edit the angular.json to reference your webpack config. You'll need to do this in the build, serve, and test sections.
 
+**For Angular 11**
+```
+...
+"build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.js",
+              "mergeRules": {
+                   "module": {
+                      "rules": "append"
+                    }
+              }
+          },
+...
+"serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "browserTarget": "angular-tailwind:build"
+          },
+...
+
+```
+
+**For Angular 10**
 ```
 ...
 options: {
@@ -86,6 +119,12 @@ npx tailwind init
 Configure the purge option in the newly generated tailwind.config.js. This will configure tailwind to eliminiate any unused utility classes in the build process.
 
 **Note: When your application is built without the purge option, your styles will be approximately 3MB. Running with purge enabled can slow down local development and reload times however.
+
+**For Angular 11**
+Do NOT true purge on while developing your styles will not reload when using ng serve or yarn start
+
+
+**For Angular 10**
 ```
 purge: {
   enabled: true,
@@ -238,6 +277,7 @@ Component specification:
 - the background is red-500 ([tailwind background color](https://tailwindcss.com/docs/background-color))
 - the text should be horizontally and vertically centered in the circle
 - a circle ([tailwind rounded corners](https://tailwindcss.com/docs/border-radius#rounded-corners))
+- text should be white  ([tailwind text color])(https://tailwindcss.com/docs/text-color)
 
 
 <details><summary>Answer</summary><p>
@@ -247,7 +287,7 @@ git checkout 2a-answer
 ```
 
 ```
-<div class="h-10 w-10 rounded-full bg-red-500 text-white flex items-center justify-center">
+<div class="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center">
   {{label}}
 </div>
 ```
@@ -276,7 +316,7 @@ avatar.component.html
 avatar.component.scss
 
 .avatar {
-  @apply h-10 w-10 rounded-full bg-red-500 text-white flex items-center justify-center;
+  @apply h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center;
 }
 
 ```
