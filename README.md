@@ -1,4 +1,7 @@
-#Tailwindcss
+
+
+![](hero.png)
+
 
 When we write html and css, it's common to have to jump back and forth between css and html files to get an understanding of what's going on. This is most apparent when global styles are used - we find ourselves in multiple css files, our html and in the browser inspector trying to figure out what's going on. Wouldn't it be nice to make the change in one place?
 
@@ -15,13 +18,14 @@ Some advantages are:
 
 ## Using tailwind with angular
 
-This dev day is tested for angular 10. It is recommended you use the latest angular 10 cli.
+This dev day is tested for angular 10. It is recommended you use the latest angular 10 cli. If you wanted to use angular 11 setup instructions can be found [here](README-angular11.md).
 
 ```
 npm uninstall -g @angular/cli
 npm cache clean
 npm install -g @angular/cli@^10
 ```
+
 
 ## Setting up an angular application configured to use tailwindcss
 
@@ -86,6 +90,7 @@ npx tailwind init
 Configure the purge option in the newly generated tailwind.config.js. This will configure tailwind to eliminiate any unused utility classes in the build process.
 
 **Note: When your application is built without the purge option, your styles will be approximately 3MB. Running with purge enabled can slow down local development and reload times however.
+
 ```
 purge: {
   enabled: true,
@@ -139,7 +144,7 @@ Tailwind has the following utility classes that you'll need. In a flex row, they
 
 When you load the application, there is a red square displayed in a blue square.
 
-####1a. vertically and horizontally center the red square inside the blue square.
+#### 1a. vertically and horizontally center the red square inside the blue square.
 
 
 <details><summary>Answer</summary><p>
@@ -154,7 +159,7 @@ When you load the application, there is a red square displayed in a blue square.
 </p></details>
 
 
-####1b. vertically center the red square inside the blue square. horizontally the red square should be at the start
+#### 1b. vertically center the red square inside the blue square. horizontally the red square should be at the start
 
 
 <details><summary>Answer</summary><p>
@@ -168,7 +173,7 @@ When you load the application, there is a red square displayed in a blue square.
 ```
 </p></details>
 
-####1c. vertically center the red square inside the blue square. horizontally the red square should be at the end.
+#### 1c. vertically center the red square inside the blue square. horizontally the red square should be at the end.
 
 
 <details><summary>Answer</summary><p>
@@ -199,7 +204,7 @@ To make a chip we'll break it up into 2 steps.
 - create an svg button component
 - create the chip component
 
-####2a. Use tailwind **html classes** to create an avatar component (don't write things in any scss files).
+#### 2a. Use tailwind **html classes** to create an avatar component (don't write things in any scss files).
 
 
 ```
@@ -238,6 +243,7 @@ Component specification:
 - the background is red-500 ([tailwind background color](https://tailwindcss.com/docs/background-color))
 - the text should be horizontally and vertically centered in the circle
 - a circle ([tailwind rounded corners](https://tailwindcss.com/docs/border-radius#rounded-corners))
+- text should be white  ([tailwind text color])(https://tailwindcss.com/docs/text-color)
 
 
 <details><summary>Answer</summary><p>
@@ -247,14 +253,14 @@ git checkout 2a-answer
 ```
 
 ```
-<div class="h-10 w-10 rounded-full bg-red-500 text-white flex items-center justify-center">
+<div class="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center">
   {{label}}
 </div>
 ```
 
 </p></details>
 
-####2b. Use the tailwind [@apply](https://tailwindcss.com/docs/functions-and-directives#apply) to move your html classes into your scss file.
+#### 2b. Use the tailwind [@apply](https://tailwindcss.com/docs/functions-and-directives#apply) to move your html classes into your scss file.
 
 ```
 git checkout 2b-start
@@ -276,14 +282,14 @@ avatar.component.html
 avatar.component.scss
 
 .avatar {
-  @apply h-10 w-10 rounded-full bg-red-500 text-white flex items-center justify-center;
+  @apply h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center;
 }
 
 ```
 
 </p></details>
 
-####2c. Create an svg-button component
+#### 2c. Create an svg-button component
 
 Desired result:
 
@@ -341,7 +347,7 @@ svg-button.component.scss
 </p></details>
 
 
-####2d. Create the chip component
+#### 2d. Create the chip component
 
 Desired result:
 
@@ -395,7 +401,7 @@ chip.component.scss
 
 ### Exercise 3 - creating reusable input styles
 
-####3a. Create basic input styling
+#### 3a. Create basic input styling
 
 **Do your works in the styles.scss
 
@@ -434,7 +440,7 @@ styles.scss
 ```
 </p></details>
 
-####3b. create focus styling
+#### 3b. create focus styling
 
 Desired result:
 
@@ -484,7 +490,7 @@ styles.scss
 </p></details>
 
 
-####3c. create disabled styling
+#### 3c. create disabled styling
 
 Component specification (when disabled):
 
@@ -507,7 +513,7 @@ styles.scss
 </p></details>
 
 
-####3d. create error styling
+#### 3d. create error styling
 
 Component specification (when error attribute exists):
 
@@ -549,7 +555,7 @@ styles.scss
 In exercise 2 we built reusable angular components. In this exercise the goal is to produce an image using html and css, not make a component functional or for reuse. So go ahead and hardcode text, paste an svg right into the html, or set a style on an html element. You'll to use tailwind classes directly in the html rather than externalizing them into an scss file. If you're spending time thinking about what html tag to use make it a div. The answers use div tags exclusively.
 
 
-####4a. Create an alert component
+#### 4a. Create an alert component
 
 ```
 ng g c alert
@@ -596,7 +602,7 @@ git checkout 4a-answer
 </p></details>
 
 
-####4b. Create a home screen
+#### 4b. Create a home screen
 
 ```
 ng g c home-screen
