@@ -29,6 +29,8 @@ npm install -g @angular/cli@^10
 
 ## Setting up an angular application configured to use tailwindcss
 
+**NOTE:** These instructions are just for setting up tailwind in a new project; This is not needed to do the exercises. Tailwind will be setup correctly on all the exercise branches referenced below. If you're just working through the exercises skip ahead to [exercise 1](#exercise-1---flex-refresher)
+
 Skip the install because we will use yarn instead of npm
 
 ```
