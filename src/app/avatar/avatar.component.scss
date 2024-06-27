@@ -1,0 +1,7 @@
+:host {
+  @apply inline-block;
+}
+
+.avatar {
+  @apply h-6 w-6 text-xs rounded-full bg-red-500 text-white flex items-center justify-center;
+}
