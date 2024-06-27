@@ -1,0 +1,18 @@
+import {Component, Input} from '@angular/core';
+
+@Component({
+  selector: 'app-avatar',
+  standalone: true,
+  imports: [],
+  templateUrl: './avatar.component.html',
+  styleUrl: './avatar.component.scss',
+  styles: [`
+    :host {
+      display: inline-block;
+    }
+  `
+  ]
+})
+export class AvatarComponent {
+  @Input() label: string = "";
+}
