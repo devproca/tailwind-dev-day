@@ -50,7 +50,7 @@ When you load the application, there is a red square displayed in a blue square.
 
 <details><summary>Answer</summary><p>
 
-```
+```html
 <div class="m-10">
   <div class="h-80 w-80 bg-blue-500 flex items-center justify-center">
     <div class="h-20 w-20 bg-red-500"></div>
@@ -65,7 +65,7 @@ When you load the application, there is a red square displayed in a blue square.
 
 <details><summary>Answer</summary><p>
 
-```
+```html
 <div class="m-10">
   <div class="h-80 w-80 bg-blue-500 flex items-center">
     <div class="h-20 w-20 bg-red-500"></div>
@@ -79,7 +79,7 @@ When you load the application, there is a red square displayed in a blue square.
 
 <details><summary>Answer</summary><p>
 
-```
+```html
 <div class="m-10">
   <div class="h-80 w-80 bg-blue-500 flex items-center justify-end">
     <div class="h-20 w-20 bg-red-500"></div>
@@ -113,13 +113,15 @@ ng g c avatar
 ```
 
 avatar.component.ts
-```
+```typescript
 import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
+  standalone: true,
+  imports: [],
   templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.scss'],
+  styleUrl: './avatar.component.scss',
   styles: [`
     :host {
       display: inline-block;
@@ -128,9 +130,9 @@ import {Component, Input} from '@angular/core';
   ]
 })
 export class AvatarComponent {
-
-  @Input() label: string;
+  @Input() label: string = "";
 }
+
 ```
 Desired result:
 
@@ -153,7 +155,7 @@ Component specification:
 git checkout 2a-answer
 ```
 
-```
+```html
 <div class="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center">
   {{label}}
 </div>
@@ -173,7 +175,7 @@ git checkout 2b-start
 git checkout 2b-answer
 ```
 
-```
+```html
 avatar.component.html
 
 <div class="avatar">
@@ -224,7 +226,7 @@ Component specification:
 git checkout 2c-answer
 ```
 
-```
+```html
 svg-button.component.html
 
 <div class="svg-button-wrapper">
@@ -276,7 +278,7 @@ Component specification:
 git checkout 2d-answer
 ```
 
-```
+```html
 chip.component.html
 
 <div class="chip-wrapper">
@@ -331,7 +333,7 @@ Component specification:
 git checkout 3a-answer
 ```
 
-```
+```scss
 styles.scss
 
 .input {
@@ -360,7 +362,7 @@ Component specification (when focused):
 
 <details><summary>Hint</summary><p>
 
-```
+```scss
 box-shadow: 0px 0px 0px 3px rgba(66, 153, 225, 0.35);
 ```
 </p></details>
@@ -371,7 +373,7 @@ box-shadow: 0px 0px 0px 3px rgba(66, 153, 225, 0.35);
 git checkout 3b-answer
 ```
 
-```
+```scss
 styles.scss
 
 .input {
@@ -404,7 +406,7 @@ Component specification (when disabled):
 git checkout 3b-answer
 ```
 
-```
+```scss
 styles.scss
 
 .input[disabled] {
@@ -425,7 +427,7 @@ Component specification (when error attribute exists):
 
 <details><summary>Hint</summary><p>
 
-```
+```scss
 box-shadow: 0px 0px 0px 3px rgba(245, 101, 101, 0.35);
 ```
 </p></details>
@@ -437,7 +439,7 @@ box-shadow: 0px 0px 0px 3px rgba(245, 101, 101, 0.35);
 git checkout 3d-answer
 ```
 
-```
+```scss
 styles.scss
 
 .shadow-error {
@@ -464,7 +466,7 @@ ng g c alert
 
 ** requirement: the max-width of the alert should be 20rem
 
-```
+```scss
 style="max-width: 20rem"
 ```
 
@@ -477,7 +479,7 @@ style="max-width: 20rem"
 git checkout 4a-answer
 ```
 
-```
+```html
 <div class="p-4 rounded bg-white border-t-4 border-blue-900 shadow-xl inline-block" style="max-width: 20rem">
   <div class="flex items-center">
     <div class="rounded-full h-10 w-10 bg-blue-900 flex-shrink-0 flex items-center justify-center">
@@ -531,7 +533,7 @@ ng g c home-screen
 git checkout 4b-answer
 ```
 
-```
+```html
 <div class="rounded-2xl bg-blue-900 p-6 w-96 overflow-hidden">
   <div class="relative w-full">
     <div class="bg-blue-500 rounded-full h-60 w-60 absolute top-0 right-0 opacity-50"
