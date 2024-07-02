@@ -18,112 +18,13 @@ Some advantages are:
 
 ## Using tailwind with angular
 
-This dev day is tested for angular 10. It is recommended you use the latest angular 10 cli. If you wanted to use angular 11 setup instructions can be found [here](README-angular11.md).
-
-```
-npm uninstall -g @angular/cli
-npm cache clean
-npm install -g @angular/cli@^10
-```
-
+This dev day is tested for Angular 18.
 
 ## Setting up an angular application configured to use tailwindcss
 
-Skip the install because we will use yarn instead of npm
+**Note:** You will not need to do this for the exercises below, as tailwind will be setup in each of the exercise start branches. 
 
-```
-ng new --skip-install angular-tailwind
-cd angular-tailwind
-yarn install
-```
-
-### Add some additional dependencies and configure
-
-```
-ng add ngx-build-plus
-yarn add --dev tailwindcss autoprefixer postcss postcss-import postcss-loader postcss-scss
-```
-
-Add a custom webpack.config.js
-
-```
-module.exports = {
-  module: {
-    rules: [
-      {
-        test: /\.scss$/,
-        loader: 'postcss-loader',
-        options: {
-          postcssOptions: {
-            ident: 'postcss',
-            syntax: 'postcss-scss',
-            plugins: [
-              require('postcss-import'),
-              require('tailwindcss'),
-              require('autoprefixer'),
-            ],
-          },
-        },
-      },
-    ],
-  },
-};
-```
-
-Edit the angular.json to reference your webpack config. You'll need to do this in the build, serve, and test sections.
-
-```
-...
-options: {
-  "extraWebpackConfig": "webpack.config.js",
-...
-}
-...
-```
-
-Generate the tailwind config
-
-```
-npx tailwind init
-```
-
-Configure the purge option in the newly generated tailwind.config.js. This will configure tailwind to eliminiate any unused utility classes in the build process.
-
-**Note: When your application is built without the purge option, your styles will be approximately 3MB. Running with purge enabled can slow down local development and reload times however.
-
-```
-purge: {
-  enabled: true,
-  content: [
-    './src/**/*.html',
-    './src/**/*.scss'
-  ]
-},
-```
-
-To your styles.scss add
-
-```
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-```
-
-Edit your app.component.html
-
-```
-<div class="m-10">
-  <div class="rounded border border-gray-300 p-4 flex">
-    hello tailwind
-  </div>
-</div>
-```
-
-Start up your application!
-
-```
-yarn start
-```
+If you're interested in setting up tailwind in your own angular project, check out the [angular installation instructions](https://tailwindcss.com/docs/guides/angular).
 
 ### Exercise 1 - flex refresher
 
@@ -149,7 +50,7 @@ When you load the application, there is a red square displayed in a blue square.
 
 <details><summary>Answer</summary><p>
 
-```
+```html
 <div class="m-10">
   <div class="h-80 w-80 bg-blue-500 flex items-center justify-center">
     <div class="h-20 w-20 bg-red-500"></div>
@@ -164,7 +65,7 @@ When you load the application, there is a red square displayed in a blue square.
 
 <details><summary>Answer</summary><p>
 
-```
+```html
 <div class="m-10">
   <div class="h-80 w-80 bg-blue-500 flex items-center">
     <div class="h-20 w-20 bg-red-500"></div>
@@ -178,7 +79,7 @@ When you load the application, there is a red square displayed in a blue square.
 
 <details><summary>Answer</summary><p>
 
-```
+```html
 <div class="m-10">
   <div class="h-80 w-80 bg-blue-500 flex items-center justify-end">
     <div class="h-20 w-20 bg-red-500"></div>
@@ -212,13 +113,15 @@ ng g c avatar
 ```
 
 avatar.component.ts
-```
+```typescript
 import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
+  standalone: true,
+  imports: [],
   templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.scss'],
+  styleUrl: './avatar.component.scss',
   styles: [`
     :host {
       display: inline-block;
@@ -227,9 +130,9 @@ import {Component, Input} from '@angular/core';
   ]
 })
 export class AvatarComponent {
-
-  @Input() label: string;
+  @Input() label: string = "";
 }
+
 ```
 Desired result:
 
@@ -252,7 +155,7 @@ Component specification:
 git checkout 2a-answer
 ```
 
-```
+```html
 <div class="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center">
   {{label}}
 </div>
@@ -272,7 +175,7 @@ git checkout 2b-start
 git checkout 2b-answer
 ```
 
-```
+```html
 avatar.component.html
 
 <div class="avatar">
@@ -323,7 +226,7 @@ Component specification:
 git checkout 2c-answer
 ```
 
-```
+```html
 svg-button.component.html
 
 <div class="svg-button-wrapper">
@@ -375,7 +278,7 @@ Component specification:
 git checkout 2d-answer
 ```
 
-```
+```html
 chip.component.html
 
 <div class="chip-wrapper">
@@ -430,7 +333,7 @@ Component specification:
 git checkout 3a-answer
 ```
 
-```
+```scss
 styles.scss
 
 .input {
@@ -459,7 +362,7 @@ Component specification (when focused):
 
 <details><summary>Hint</summary><p>
 
-```
+```scss
 box-shadow: 0px 0px 0px 3px rgba(66, 153, 225, 0.35);
 ```
 </p></details>
@@ -470,7 +373,7 @@ box-shadow: 0px 0px 0px 3px rgba(66, 153, 225, 0.35);
 git checkout 3b-answer
 ```
 
-```
+```scss
 styles.scss
 
 .input {
@@ -503,7 +406,7 @@ Component specification (when disabled):
 git checkout 3b-answer
 ```
 
-```
+```scss
 styles.scss
 
 .input[disabled] {
@@ -524,7 +427,7 @@ Component specification (when error attribute exists):
 
 <details><summary>Hint</summary><p>
 
-```
+```scss
 box-shadow: 0px 0px 0px 3px rgba(245, 101, 101, 0.35);
 ```
 </p></details>
@@ -536,7 +439,7 @@ box-shadow: 0px 0px 0px 3px rgba(245, 101, 101, 0.35);
 git checkout 3d-answer
 ```
 
-```
+```scss
 styles.scss
 
 .shadow-error {
@@ -563,7 +466,7 @@ ng g c alert
 
 ** requirement: the max-width of the alert should be 20rem
 
-```
+```scss
 style="max-width: 20rem"
 ```
 
@@ -576,7 +479,7 @@ style="max-width: 20rem"
 git checkout 4a-answer
 ```
 
-```
+```html
 <div class="p-4 rounded bg-white border-t-4 border-blue-900 shadow-xl inline-block" style="max-width: 20rem">
   <div class="flex items-center">
     <div class="rounded-full h-10 w-10 bg-blue-900 flex-shrink-0 flex items-center justify-center">
@@ -630,7 +533,7 @@ ng g c home-screen
 git checkout 4b-answer
 ```
 
-```
+```html
 <div class="rounded-2xl bg-blue-900 p-6 w-96 overflow-hidden">
   <div class="relative w-full">
     <div class="bg-blue-500 rounded-full h-60 w-60 absolute top-0 right-0 opacity-50"
