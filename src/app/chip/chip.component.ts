@@ -1,19 +1,19 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-chip',
+  standalone: true,
+  imports: [],
   templateUrl: './chip.component.html',
-  styleUrls: ['./chip.component.scss']
+  styleUrl: './chip.component.scss'
 })
 export class ChipComponent {
-
-  @Input() label: string;
-
+  @Input() label: string = "";
   @Output() close = new EventEmitter<void>();
 
   /*
-    Fill in the rest of this component, the html and the scss.
-   */
+  Fill in the rest of this component, the html and the scss.
+ */
 
   /*
 
