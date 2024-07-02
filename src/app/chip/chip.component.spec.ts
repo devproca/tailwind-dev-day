@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChipComponent } from './chip.component';
 
@@ -6,14 +6,12 @@ describe('ChipComponent', () => {
   let component: ChipComponent;
   let fixture: ComponentFixture<ChipComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ChipComponent ]
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [ChipComponent]
     })
     .compileComponents();
-  }));
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(ChipComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

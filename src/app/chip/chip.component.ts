@@ -1,19 +1,28 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {AvatarComponent} from "../avatar/avatar.component";
+import {SvgButtonComponent} from "../svg-button/svg-button.component";
 
 @Component({
   selector: 'app-chip',
+  standalone: true,
+  imports: [
+    AvatarComponent,
+    SvgButtonComponent
+  ],
   templateUrl: './chip.component.html',
-  styleUrls: ['./chip.component.scss']
+  styleUrl: './chip.component.scss'
 })
 export class ChipComponent {
-
-  @Input() label: string;
-
+  @Input() label: string = "";
   @Output() close = new EventEmitter<void>();
 
   onClose(): void {
     this.close.emit();
   }
+  
+  /*
+  Fill in the rest of this component, the html and the scss.
+ */
 
   /*
 
