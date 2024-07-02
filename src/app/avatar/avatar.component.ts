@@ -2,8 +2,10 @@ import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-avatar',
+  standalone: true,
+  imports: [],
   templateUrl: './avatar.component.html',
-  styleUrls: ['./avatar.component.scss'],
+  styleUrl: './avatar.component.scss',
   styles: [`
     :host {
       display: inline-block;
@@ -12,6 +14,5 @@ import {Component, Input} from '@angular/core';
   ]
 })
 export class AvatarComponent {
-
-  @Input() label: string;
+  @Input() label: string = "";
 }
