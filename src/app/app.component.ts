@@ -4,11 +4,12 @@ import {AvatarComponent} from "./avatar/avatar.component";
 import {SvgButtonComponent} from "./svg-button/svg-button.component";
 import {SvgComponent} from "./svg/svg.component";
 import {ChipComponent} from "./chip/chip.component";
+import {AlertComponent} from "./alert/alert.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AvatarComponent, SvgButtonComponent, SvgComponent, ChipComponent],
+  imports: [RouterOutlet, AvatarComponent, SvgButtonComponent, SvgComponent, ChipComponent, AlertComponent],
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
