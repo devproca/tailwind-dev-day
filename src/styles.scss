@@ -1,6 +1,7 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 label {
   @apply block text-sm text-gray-700 mb-1;
@@ -12,7 +13,6 @@ label {
 
 .input {
   @apply px-3 py-2 text-sm text-gray-900 border border-gray-300 rounded outline-none leading-none;
-  transition: all 200ms ease-in-out;
 }
 
 .input:focus {
